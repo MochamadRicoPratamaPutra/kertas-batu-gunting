@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             var bgImage: Int = ContextCompat.getColor(this, R.color.secondary3)
             binding?.ivBatuP1?.setBackgroundColor(bgImage)
             val rng: Int = (1..3).random()
-            if (rng == 1){
+            if (rng == 1) {
                 binding?.ivKertasP2?.setBackgroundColor(bgImage)
                 binding?.tvResult?.text = "Player 2 Menang"
                 binding?.tvResult?.isVisible = true
