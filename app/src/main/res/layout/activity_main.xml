@@ -130,17 +130,19 @@
         app:layout_constraintTop_toBottomOf="@id/ivBatuP2"
         app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
+        android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/player_1_menang"
         android:background="@color/teal_200"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/barrierTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/barrierGame"
         app:layout_constraintStart_toStartOf="parent"
         android:rotation="-30"
         android:padding="10dp"
         android:textSize="20sp"
+        android:visibility="gone"
         />
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierGame"
