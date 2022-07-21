@@ -6,44 +6,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
     android:padding="20dp">
-    <TextView
-        android:id="@+id/tvKertas"
+    <RelativeLayout
+        android:id="@+id/rlTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/kertas"
-        android:textColor="@color/primary1"
-        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
-    <TextView
-        android:id="@+id/tvBatu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/batu"
-        android:textColor="@color/primary2"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvKertas"
-        />
-    <TextView
-        android:id="@+id/tvGunting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gunting"
-        android:textColor="@color/primary3"
-        android:textSize="40sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBatu"
-        />
+        android:rotation="-30">
+        <TextView
+            android:id="@+id/tvKertas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kertas"
+            android:textColor="@color/primary1"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"/>
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            />-->
+        <TextView
+            android:id="@+id/tvBatu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/batu"
+            android:textColor="@color/primary2"
+            android:textSize="30sp"
+            android:layout_below="@+id/tvKertas"
+            android:layout_centerHorizontal="true"/>
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvKertas"-->
+<!--            />-->
+        <TextView
+            android:id="@+id/tvGunting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gunting"
+            android:textColor="@color/primary3"
+            android:textSize="30sp"
+            android:layout_below="@+id/tvBatu"
+            android:layout_centerHorizontal="true"/>
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvBatu"-->
+<!--            />-->
+    </RelativeLayout>
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tvBatu, tvGunting, tvKertas"
+        app:constraint_referenced_ids="rlTitle"
         app:barrierDirection="bottom"/>
     <TextView
         android:id="@+id/tvP1"
@@ -124,6 +138,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:rotation="-30"
+        android:padding="10dp"
+        android:textSize="20sp"
         />
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierGame"
