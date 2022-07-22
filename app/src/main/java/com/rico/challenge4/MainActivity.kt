@@ -20,21 +20,26 @@ class MainActivity : AppCompatActivity() {
             var bgImage: Int = ContextCompat.getColor(this, R.color.secondary3)
             binding?.ivBatuP1?.setBackgroundColor(bgImage)
             val rng: Int = (1..3).random()
-            if (rng == 1) {
+            val possibleChoice = arrayListOf<String>("gunting", "batu", "kertas")
+            val comChoice = possibleChoice.random()
+            val BATU = "batu"
+            val mekanik = MekanikGameClass(BATU, comChoice)
+            val result = mekanik.result()
+            val WIN = "win"
+            val DRAW = "draw"
+            if (result == WIN) {
                 binding?.ivKertasP2?.setBackgroundColor(bgImage)
                 binding?.tvResult?.text = "Player 2 Menang"
-                binding?.tvResult?.isVisible = true
-            } else if (rng == 2) {
+            } else if (result == DRAW) {
                 binding?.ivBatuP2?.setBackgroundColor(bgImage)
                 binding?.tvResult?.text = "Draw"
                 var bgResult: Int = ContextCompat.getColor(this, R.color.secondary1)
                 binding?.tvResult?.setBackgroundColor(bgResult)
-                binding?.tvResult?.isVisible = true
             } else {
                 binding?.ivGuntingP2?.setBackgroundColor(bgImage)
                 binding?.tvResult?.text = "Player 1 Menang"
-                binding?.tvResult?.isVisible = true
             }
+            binding?.tvResult?.isVisible = true
         }
     }
 }
