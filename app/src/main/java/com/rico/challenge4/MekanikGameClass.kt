@@ -1,44 +1,49 @@
 package com.rico.challenge4
 
-import com.rico.challenge4.model.choice
-import com.rico.challenge4.model.choice.choiceAvaliable.BATU
-import com.rico.challenge4.model.choice.choiceAvaliable.GUNTING
-import com.rico.challenge4.model.choice.choiceAvaliable.KERTAS
-import com.rico.challenge4.model.result
+import com.rico.challenge4.model.Choice.ChoiceAvaliable.BATU
+import com.rico.challenge4.model.Choice.ChoiceAvaliable.GUNTING
+import com.rico.challenge4.model.Choice.ChoiceAvaliable.KERTAS
+import com.rico.challenge4.model.Result.ResultText.DRAW
+import com.rico.challenge4.model.Result.ResultText.LOSE
+import com.rico.challenge4.model.Result.ResultText.WIN
 
 class MekanikGameClass(
-    var playerChoice: String
+    private var playerChoice: String
 ) {
 
     fun determiningComChoice(): String {
-        val possibleChoice = arrayListOf<String>(
+        val POSSIBLE_CHOICE = arrayListOf(
             KERTAS,
             BATU,
             GUNTING
         )
-        return possibleChoice.random()
+        return POSSIBLE_CHOICE.random()
     }
 
     fun result(comChoice: String): String {
         val REFRESH = "refresh"
 
-        if (playerChoice == GUNTING) {
-            when (comChoice) {
-                GUNTING -> return result.resultText.DRAW
-                KERTAS -> return result.resultText.WIN
-                BATU -> return result.resultText.LOSE
+        when (playerChoice) {
+            GUNTING -> {
+                when (comChoice) {
+                    GUNTING -> return DRAW
+                    KERTAS -> return WIN
+                    BATU -> return LOSE
+                }
             }
-        } else if (playerChoice == KERTAS) {
-            when (comChoice) {
-                GUNTING -> return result.resultText.LOSE
-                KERTAS -> return result.resultText.DRAW
-                BATU -> return result.resultText.WIN
+            KERTAS -> {
+                when (comChoice) {
+                    GUNTING -> return LOSE
+                    KERTAS -> return DRAW
+                    BATU -> return WIN
+                }
             }
-        } else if (playerChoice == BATU) {
-            when (comChoice) {
-                GUNTING -> return result.resultText.WIN
-                KERTAS -> return result.resultText.LOSE
-                BATU -> return result.resultText.DRAW
+            BATU -> {
+                when (comChoice) {
+                    GUNTING -> return WIN
+                    KERTAS -> return LOSE
+                    BATU -> return DRAW
+                }
             }
         }
         return REFRESH

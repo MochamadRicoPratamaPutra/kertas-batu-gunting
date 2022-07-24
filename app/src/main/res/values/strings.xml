@@ -11,4 +11,5 @@
     <string name="image_gunting">image gunting</string>
     <string name="refresh">refresh</string>
     <string name="player_1_menang">Player 1 Menang</string>
+    <string name="vs">VS</string>
 </resources>
