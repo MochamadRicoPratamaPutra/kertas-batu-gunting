@@ -5,7 +5,7 @@
     <string name="batu">Batu</string>
     <string name="gunting">Gunting</string>
     <string name="player_1">Player 1</string>
-    <string name="player_2">NPC</string>
+    <string name="player_2">COM</string>
     <string name="image_kertas">image kertas</string>
     <string name="image_batu">image batu</string>
     <string name="image_gunting">image gunting</string>

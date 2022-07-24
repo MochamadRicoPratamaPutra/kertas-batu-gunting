@@ -1,6 +1,6 @@
 package com.rico.challenge4
 
-import android.content.Context
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +13,7 @@ import com.rico.challenge4.model.Choice.ChoiceAvaliable.KERTAS
 import com.rico.challenge4.model.Result.ResultText.DRAW
 import com.rico.challenge4.model.Result.ResultText.WIN
 import com.rico.challenge4.model.Result.ResultText.COM_WIN
+import com.rico.challenge4.model.Result.ResultText.DRAW_TEXT
 import com.rico.challenge4.model.Result.ResultText.P1_WIN
 
 
@@ -31,92 +32,96 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        val BG_IMAGE: Int = ContextCompat.getColor(this, R.color.secondary3)
+        val BG_IMAGE: Drawable? = ContextCompat.getDrawable(this, R.drawable.border_radius_shape)
         val BG_RESULT_DRAW: Int = ContextCompat.getColor(this, R.color.secondary1)
         val BG_RESULT_WIN_LOSE: Int = ContextCompat.getColor(this, R.color.secondary4)
         val BG_TEXT_RESULT: Int = ContextCompat.getColor(this, R.color.white)
 
         binding?.ivBatuP1?.setOnClickListener {
-            binding?.ivBatuP1?.setBackgroundColor(BG_IMAGE)
+            binding?.ivBatuP1?.background = BG_IMAGE
             binding?.tvResult?.textSize = 20F
             binding?.tvResult?.setTextColor(BG_TEXT_RESULT)
             val mekanik = MekanikGameClass(BATU)
             val COM_CHOICE = mekanik.determiningComChoice()
+            Log.d("Player Choice", "Pemain 1: Batu, Pemain 2 : $COM_CHOICE")
             when (mekanik.result(COM_CHOICE)) {
                 WIN -> {
-                    binding?.ivKertasP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = COM_WIN
+                    binding?.ivGuntingP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = P1_WIN
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
                 DRAW -> {
-                    binding?.ivBatuP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = DRAW
+                    binding?.ivBatuP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = DRAW_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_DRAW)
                 }
                 else -> {
-                    binding?.ivGuntingP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = P1_WIN
+                    binding?.ivKertasP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = COM_WIN
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
             }
             binding?.tvResult?.isVisible = true
-            Log.d("Result", "Pemain 1: Batu, Pemain 2 : $COM_CHOICE, result: ${mekanik.result(COM_CHOICE)}")
+            Log.d("Result", "Pemain 1 ${mekanik.result(COM_CHOICE)}")
             blockClick()
         }
 
         binding?.ivKertasP1?.setOnClickListener {
-            binding?.ivKertasP1?.setBackgroundColor(BG_IMAGE)
+            binding?.ivKertasP1?.background = BG_IMAGE
             binding?.tvResult?.textSize = 20F
             binding?.tvResult?.setTextColor(BG_TEXT_RESULT)
             val mekanik = MekanikGameClass(KERTAS)
             val COM_CHOICE = mekanik.determiningComChoice()
+            Log.d("Player Choice", "Pemain 1: Kertas, Pemain 2 : $COM_CHOICE")
             when (mekanik.result(COM_CHOICE)) {
                 WIN -> {
-                    binding?.ivGuntingP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = COM_WIN
+                    binding?.ivBatuP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = P1_WIN
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
+
                 }
                 DRAW -> {
-                    binding?.ivKertasP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = DRAW
+                    binding?.ivKertasP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = DRAW_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_DRAW)
                 }
                 else -> {
-                    binding?.ivBatuP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = P1_WIN
+                    binding?.ivGuntingP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = COM_WIN
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
             }
             binding?.tvResult?.isVisible = true
-            Log.d("Result", "Pemain 1: Kertas, Pemain 2 : $COM_CHOICE, result: ${mekanik.result(COM_CHOICE)}")
+            Log.d("Result", "Pemain 1 ${mekanik.result(COM_CHOICE)}")
             blockClick()
         }
 
         binding?.ivGuntingP1?.setOnClickListener {
-            binding?.ivGuntingP1?.setBackgroundColor(BG_IMAGE)
+            binding?.ivGuntingP1?.background = BG_IMAGE
             binding?.tvResult?.textSize = 20F
             binding?.tvResult?.setTextColor(BG_TEXT_RESULT)
             val mekanik = MekanikGameClass(GUNTING)
             val COM_CHOICE = mekanik.determiningComChoice()
+            Log.d("Player Choice", "Pemain 1: Gunting, Pemain 2 : $COM_CHOICE")
             when (mekanik.result(COM_CHOICE)) {
                 WIN -> {
-                    binding?.ivBatuP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = COM_WIN
+                    binding?.ivKertasP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = P1_WIN
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
                 DRAW -> {
-                    binding?.ivGuntingP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = DRAW
+                    binding?.ivGuntingP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = DRAW_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_DRAW)
                 }
                 else -> {
-                    binding?.ivKertasP2?.setBackgroundColor(BG_IMAGE)
-                    binding?.tvResult?.text = P1_WIN
+                    binding?.ivBatuP2?.background = BG_IMAGE
+                    binding?.tvResult?.text = COM_WIN
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
             }
             binding?.tvResult?.isVisible = true
-            Log.d("Result", "Pemain 1: Gunting, Pemain 2 : $COM_CHOICE, result: ${mekanik.result(COM_CHOICE)}")
+            Log.d("Result", "Pemain 1 ${mekanik.result(COM_CHOICE)}")
             blockClick()
         }
 

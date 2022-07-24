@@ -21,8 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/comic_neue"
             android:text="@string/kertas"
             android:textColor="@color/primary1"
+            android:textFontWeight="600"
             android:textSize="30sp" />
         <!--            app:layout_constraintStart_toStartOf="parent"-->
         <!--            app:layout_constraintEnd_toEndOf="parent"-->
@@ -34,8 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvKertas"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/comic_neue"
             android:text="@string/batu"
             android:textColor="@color/primary2"
+            android:textFontWeight="600"
             android:textSize="30sp" />
         <!--            app:layout_constraintStart_toStartOf="parent"-->
         <!--            app:layout_constraintEnd_toEndOf="parent"-->
@@ -47,8 +51,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvBatu"
             android:layout_centerHorizontal="true"
+            android:fontFamily="@font/comic_neue"
             android:text="@string/gunting"
             android:textColor="@color/primary3"
+            android:textFontWeight="600"
             android:textSize="30sp" />
         <!--            app:layout_constraintStart_toStartOf="parent"-->
         <!--            app:layout_constraintEnd_toEndOf="parent"-->
@@ -68,8 +74,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
+        android:fontFamily="@font/comic_neue"
         android:text="@string/player_1"
         android:textColor="@color/secondary2"
+        android:textFontWeight="600"
         android:textSize="17sp"
         app:layout_constraintTop_toTopOf="@+id/barrierTitle" />
 
@@ -78,8 +86,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
+        android:fontFamily="@font/comic_neue"
         android:text="@string/player_2"
         android:textColor="@color/secondary2"
+        android:textFontWeight="600"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/barrierTitle" />
@@ -145,10 +155,12 @@
         android:id="@+id/tvResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/secondary5"
+        android:fontFamily="@font/comic_neue"
         android:padding="10dp"
         android:rotation="-30"
         android:text="@string/vs"
+        android:textColor="@color/secondary5"
+        android:textFontWeight="600"
         android:textSize="50sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/barrierGame"
