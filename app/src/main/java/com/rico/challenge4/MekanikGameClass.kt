@@ -1,11 +1,11 @@
 package com.rico.challenge4
 
-import com.rico.challenge4.model.Choice.ChoiceAvaliable.BATU
-import com.rico.challenge4.model.Choice.ChoiceAvaliable.GUNTING
-import com.rico.challenge4.model.Choice.ChoiceAvaliable.KERTAS
-import com.rico.challenge4.model.Result.ResultText.DRAW
-import com.rico.challenge4.model.Result.ResultText.LOSE
-import com.rico.challenge4.model.Result.ResultText.WIN
+import com.rico.challenge4.model.ChoiceAvaliable.BATU
+import com.rico.challenge4.model.ChoiceAvaliable.GUNTING
+import com.rico.challenge4.model.ChoiceAvaliable.KERTAS
+import com.rico.challenge4.model.ResultText.DRAW
+import com.rico.challenge4.model.ResultText.LOSE
+import com.rico.challenge4.model.ResultText.WIN
 
 class MekanikGameClass(
     private var playerChoice: String

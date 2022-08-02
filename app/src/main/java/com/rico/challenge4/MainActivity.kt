@@ -7,14 +7,11 @@ import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import com.rico.challenge4.databinding.ActivityMainBinding
-import com.rico.challenge4.model.Choice.ChoiceAvaliable.BATU
-import com.rico.challenge4.model.Choice.ChoiceAvaliable.GUNTING
-import com.rico.challenge4.model.Choice.ChoiceAvaliable.KERTAS
-import com.rico.challenge4.model.Result.ResultText.DRAW
-import com.rico.challenge4.model.Result.ResultText.WIN
-import com.rico.challenge4.model.Result.ResultText.COM_WIN
-import com.rico.challenge4.model.Result.ResultText.DRAW_TEXT
-import com.rico.challenge4.model.Result.ResultText.P1_WIN
+import com.rico.challenge4.model.ChoiceAvaliable.BATU
+import com.rico.challenge4.model.ChoiceAvaliable.GUNTING
+import com.rico.challenge4.model.ChoiceAvaliable.KERTAS
+import com.rico.challenge4.model.ResultText.DRAW
+import com.rico.challenge4.model.ResultText.WIN
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         val BG_RESULT_DRAW: Int = ContextCompat.getColor(this, R.color.secondary1)
         val BG_RESULT_WIN_LOSE: Int = ContextCompat.getColor(this, R.color.secondary4)
         val BG_TEXT_RESULT: Int = ContextCompat.getColor(this, R.color.white)
+        val PLAYER1_WIN_TEXT: String = getString(R.string.player_1_win)
+        val PLAYER2_WIN_TEXT: String = getString(R.string.player_2_win)
+        val DRAW_TEXT:String = getString(R.string.draw_result)
 
         binding?.ivBatuP1?.setOnClickListener {
             binding?.ivBatuP1?.background = BG_IMAGE
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             when (mekanik.result(COM_CHOICE)) {
                 WIN -> {
                     binding?.ivGuntingP2?.background = BG_IMAGE
-                    binding?.tvResult?.text = P1_WIN
+                    binding?.tvResult?.text = PLAYER1_WIN_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
                 DRAW -> {
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     binding?.ivKertasP2?.background = BG_IMAGE
-                    binding?.tvResult?.text = COM_WIN
+                    binding?.tvResult?.text = PLAYER2_WIN_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
             }
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
             when (mekanik.result(COM_CHOICE)) {
                 WIN -> {
                     binding?.ivBatuP2?.background = BG_IMAGE
-                    binding?.tvResult?.text = P1_WIN
+                    binding?.tvResult?.text = PLAYER1_WIN_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
 
                 }
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     binding?.ivGuntingP2?.background = BG_IMAGE
-                    binding?.tvResult?.text = COM_WIN
+                    binding?.tvResult?.text = PLAYER2_WIN_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
             }
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
             when (mekanik.result(COM_CHOICE)) {
                 WIN -> {
                     binding?.ivKertasP2?.background = BG_IMAGE
-                    binding?.tvResult?.text = P1_WIN
+                    binding?.tvResult?.text = PLAYER1_WIN_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
                 DRAW -> {
@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     binding?.ivBatuP2?.background = BG_IMAGE
-                    binding?.tvResult?.text = COM_WIN
+                    binding?.tvResult?.text = PLAYER2_WIN_TEXT
                     binding?.tvResult?.setBackgroundColor(BG_RESULT_WIN_LOSE)
                 }
             }

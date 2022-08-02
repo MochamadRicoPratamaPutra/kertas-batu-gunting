@@ -10,6 +10,8 @@
     <string name="image_batu">image batu</string>
     <string name="image_gunting">image gunting</string>
     <string name="refresh">refresh</string>
-    <string name="player_1_menang">Player 1 Menang</string>
+    <string name="player_1_win">Pemain 1 MENANG!</string>
+    <string name="player_2_win">Pemain 2 MENANG!</string>
+    <string name="draw_result">DRAW</string>
     <string name="vs">VS</string>
 </resources>
