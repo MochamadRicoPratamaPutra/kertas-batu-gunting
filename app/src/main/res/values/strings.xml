@@ -15,4 +15,7 @@
     <string name="draw_result">DRAW</string>
     <string name="vs">VS</string>
     <string name="splash_screen_logo">Splash Screen Logo</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bermain_suit_bersama_dengan_teman">Bermain suit bersama dengan teman</string>
+    <string name="image_playing_with_friend">Image playing with friend</string>
 </resources>
