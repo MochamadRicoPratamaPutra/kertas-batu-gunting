@@ -17,5 +17,9 @@
     <string name="splash_screen_logo">Splash Screen Logo</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bermain_suit_bersama_dengan_teman">Bermain suit bersama dengan teman</string>
+    <string name="bermain_suit_bersama_dengan_cpu">Bermain suit bersama dengan CPU</string>
     <string name="image_playing_with_friend">Image playing with friend</string>
+    <string name="user_vs_teman">User vs Teman</string>
+    <string name="user_vs_cpu">User vs CPU</string>
+    <string name="pilih_lawanmu">Pilih Lawanmu</string>
 </resources>

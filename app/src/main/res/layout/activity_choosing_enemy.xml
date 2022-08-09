@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChoosingEnemyActivity">
+
+    <TextView
+        android:id="@+id/tvPilihLawan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pilih_lawanmu"
+        app:layout_constraintBottom_toTopOf="@+id/ivLawanTeman"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/ivLawanTeman"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@string/bermain_suit_bersama_dengan_teman"
+        android:src="@drawable/ic_landing_page1"
+        app:layout_constraintBottom_toTopOf="@+id/ivLawanCpu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLawanTeman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_vs_teman"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLawanTeman"/>
+
+    <ImageView
+        android:id="@+id/ivLawanCpu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@string/bermain_suit_bersama_dengan_cpu"
+        android:src="@drawable/ic_landing_page2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLawanTeman" />
+
+    <TextView
+        android:id="@+id/tvLawanCpu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_vs_cpu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLawanCpu" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
