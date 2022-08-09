@@ -5,7 +5,7 @@
     <string name="batu">Batu</string>
     <string name="gunting">Gunting</string>
     <string name="player_1">Player 1</string>
-    <string name="player_2">COM</string>
+    <string name="player_2">CPU</string>
     <string name="image_kertas">image kertas</string>
     <string name="image_batu">image batu</string>
     <string name="image_gunting">image gunting</string>
@@ -22,4 +22,6 @@
     <string name="user_vs_teman">User vs Teman</string>
     <string name="user_vs_cpu">User vs CPU</string>
     <string name="pilih_lawanmu">Pilih Lawanmu</string>
+    <string name="enemy_cpu">CPU</string>
+    <string name="enemy_friend">Friend</string>
 </resources>
