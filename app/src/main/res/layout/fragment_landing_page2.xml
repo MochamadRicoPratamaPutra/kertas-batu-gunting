@@ -3,24 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FragmentLandingPage1">
+    tools:context=".fragment.FragmentLandingPage2">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:layout_gravity="center">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/image_playing_with_friend"
-            android:src="@drawable/ic_landing_page1" />
+            android:contentDescription="@string/image_playing_with_cpu"
+            android:src="@drawable/ic_landing_page2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/bermain_suit_bersama_dengan_teman" />
+            android:text="@string/bermain_suit_bersama_dengan_cpu" />
     </LinearLayout>
+
 </FrameLayout>

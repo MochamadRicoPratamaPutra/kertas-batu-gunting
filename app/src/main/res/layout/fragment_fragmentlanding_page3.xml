@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FragmentLandingPage1">
+    tools:context=".fragment.FragmentlandingPage3">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -14,13 +14,22 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/image_playing_with_friend"
-            android:src="@drawable/ic_landing_page1" />
+            android:src="@drawable/ic_landing_page3"
+            android:contentDescription="@string/image_user"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/bermain_suit_bersama_dengan_teman" />
+            android:layout_marginVertical="30dp"
+            android:text="@string/tuliskan_namamu_di_bawah" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username"/>
+
     </LinearLayout>
+
 </FrameLayout>

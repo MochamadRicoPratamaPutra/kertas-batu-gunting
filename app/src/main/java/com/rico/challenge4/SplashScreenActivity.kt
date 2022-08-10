@@ -24,7 +24,7 @@ class SplashScreenActivity : AppCompatActivity() {
 //        }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashScreenActivity, ChoosingEnemyActivity::class.java)
+            val intent = Intent(this@SplashScreenActivity, LandingPageActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

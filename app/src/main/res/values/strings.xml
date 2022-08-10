@@ -19,9 +19,13 @@
     <string name="bermain_suit_bersama_dengan_teman">Bermain suit bersama dengan teman</string>
     <string name="bermain_suit_bersama_dengan_cpu">Bermain suit bersama dengan CPU</string>
     <string name="image_playing_with_friend">Image playing with friend</string>
+    <string name="image_playing_with_cpu">Image playing with cpu</string>
     <string name="user_vs_teman">User vs Teman</string>
     <string name="user_vs_cpu">User vs CPU</string>
     <string name="pilih_lawanmu">Pilih Lawanmu</string>
     <string name="enemy_cpu">CPU</string>
     <string name="enemy_friend">Friend</string>
+    <string name="tuliskan_namamu_di_bawah">Tuliskan namamu di bawah</string>
+    <string name="image_user">Image User</string>
+    <string name="username">Username</string>
 </resources>
