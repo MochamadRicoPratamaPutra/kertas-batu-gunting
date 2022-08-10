@@ -31,27 +31,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        var player1Choice: String
-        var enemyType = intent.getStringExtra(ENEMY_TYPE)
+        lateinit var player1Choice: String
+        val enemyType = intent.getStringExtra(ENEMY_TYPE)
         binding?.apply {
             ivBatuP1.setOnClickListener {
                 player1Choice = BATU
+                bgChoosenImage(ivBatuP1)
                 if (enemyType == getString(R.string.enemy_cpu)) {
-                    gameFunctionCpu(ivBatuP1, player1Choice)
+                    gameFunctionCpu(player1Choice)
                 }
                 blockClick()
             }
             ivGuntingP1.setOnClickListener {
                 player1Choice = GUNTING
+                bgChoosenImage(ivGuntingP1)
                 if (enemyType == getString(R.string.enemy_cpu)) {
-                    gameFunctionCpu(ivGuntingP1, player1Choice)
+                    gameFunctionCpu(player1Choice)
                 }
                 blockClick()
             }
             ivKertasP1.setOnClickListener {
-                player1Choice = GUNTING
+                player1Choice = KERTAS
+                bgChoosenImage(ivKertasP1)
                 if (enemyType == getString(R.string.enemy_cpu)) {
-                    gameFunctionCpu(ivKertasP1, player1Choice)
+                    gameFunctionCpu(player1Choice)
                 }
                 blockClick()
             }
@@ -74,15 +77,28 @@ class MainActivity : AppCompatActivity() {
                 binding?.ivBatuP1?.setBackgroundColor(BG_COLOR)
                 binding?.ivBatuP2?.setBackgroundColor(BG_COLOR)
             }
+            if (enemyType == getString(R.string.enemy_friend)) {
+                ivGuntingP2.setOnClickListener {
+                    bgChoosenImage(ivGuntingP2)
+                    gameFunctionFriend(player1Choice, GUNTING)
+                }
+                ivKertasP2.setOnClickListener {
+                    bgChoosenImage(ivKertasP2)
+                    gameFunctionFriend(player1Choice, KERTAS)
+                }
+                ivBatuP2.setOnClickListener {
+                    bgChoosenImage(ivBatuP2)
+                    gameFunctionFriend(player1Choice, BATU)
+                }
+            }
         }
     }
 
-    fun gameFunctionCpu(ivPlayer1Choice: ImageView, choice: String) {
+    fun gameFunctionCpu(player1Choice: String) {
         val BG_IMAGE: Drawable? = ContextCompat.getDrawable(this, R.drawable.border_radius_shape)
-        ivPlayer1Choice.background = BG_IMAGE
-        val mekanik = MekanikGameClass(choice)
+        val mekanik = MekanikGameClass(player1Choice)
         val COM_CHOICE = mekanik.determiningComChoice()
-        Log.d("PLAYERCHOICE", "Pemain 1: Gunting, Pemain 2 : $COM_CHOICE")
+        Log.d("PLAYERCHOICE", "Pemain 1: $player1Choice, Pemain 2 : $COM_CHOICE")
         when (COM_CHOICE) {
             KERTAS -> {
                 binding?.ivKertasP2?.background = BG_IMAGE
@@ -98,8 +114,16 @@ class MainActivity : AppCompatActivity() {
         Log.d("RESULT", "Pemain 1 ${mekanik.result(COM_CHOICE)}")
     }
 
-    fun gameFunctionFriend() {
+    fun bgChoosenImage(playerChoice: ImageView) {
+        val BG_IMAGE: Drawable? = ContextCompat.getDrawable(this, R.drawable.border_radius_shape)
+        playerChoice.background = BG_IMAGE
+    }
 
+    fun gameFunctionFriend(player1Choice: String, player2Choice: String) {
+        val mekanik = MekanikGameClass(player1Choice)
+        resultGame(mekanik.result(player2Choice))
+        Log.d("RESULT", "Pemain 1 ${mekanik.result(player2Choice)}")
+        Log.d("PLAYERCHOICE", "Pemain 1: $player1Choice, Pemain 2 : $player2Choice")
     }
 
     fun resultGame(result: String) {
@@ -108,13 +132,13 @@ class MainActivity : AppCompatActivity() {
         val DRAW_TEXT: String = getString(R.string.draw_result)
         when (result) {
             WIN -> {
-                Toast.makeText(this, PLAYER1_WIN_TEXT, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, PLAYER1_WIN_TEXT, Toast.LENGTH_SHORT).show()
             }
             DRAW -> {
-                Toast.makeText(this, DRAW_TEXT, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, DRAW_TEXT, Toast.LENGTH_SHORT).show()
             }
             else -> {
-                Toast.makeText(this, PLAYER2_WIN_TEXT, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, PLAYER2_WIN_TEXT, Toast.LENGTH_SHORT).show()
             }
         }
         Log.d("RESULT", "Pemain 1 ${result}")
