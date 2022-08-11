@@ -28,4 +28,6 @@
     <string name="tuliskan_namamu_di_bawah">Tuliskan namamu di bawah</string>
     <string name="image_user">Image User</string>
     <string name="username">Username</string>
+    <string name="pemain_1_sedang_memilih">Pemain 1 sedang memilih</string>
+    <string name="pemain_2_sedang_memilih">Pemain 2 sedang memilih</string>
 </resources>

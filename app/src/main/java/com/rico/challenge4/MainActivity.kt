@@ -1,6 +1,5 @@
 package com.rico.challenge4
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -26,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         binding?.ivKertasP1?.isClickable = false
         binding?.ivGuntingP1?.isClickable = false
     }
+
     var player1Choice = "DEFAULT"
 
     var BG_IMAGE = R.drawable.border_radius_shape
@@ -37,28 +37,13 @@ class MainActivity : AppCompatActivity() {
         val enemyType = intent.getStringExtra(ENEMY_TYPE)
         binding?.apply {
             ivBatuP1.setOnClickListener {
-                player1Choice = BATU
-                bgChoosenImage(ivBatuP1)
-                if (enemyType == getString(R.string.enemy_cpu)) {
-                    gameFunctionCpu(player1Choice)
-                }
-                blockClick()
+                onClickPlayer1Choice(ivBatuP1, BATU, enemyType)
             }
             ivGuntingP1.setOnClickListener {
-                player1Choice = GUNTING
-                bgChoosenImage(ivGuntingP1)
-                if (enemyType == getString(R.string.enemy_cpu)) {
-                    gameFunctionCpu(player1Choice)
-                }
-                blockClick()
+                onClickPlayer1Choice(ivGuntingP1, GUNTING, enemyType)
             }
             ivKertasP1.setOnClickListener {
-                player1Choice = KERTAS
-                bgChoosenImage(ivKertasP1)
-                if (enemyType == getString(R.string.enemy_cpu)) {
-                    gameFunctionCpu(player1Choice)
-                }
-                blockClick()
+                onClickPlayer1Choice(ivKertasP1, KERTAS, enemyType)
             }
             ivRestart.setOnClickListener {
                 val VS = "VS"
@@ -86,24 +71,72 @@ class MainActivity : AppCompatActivity() {
             }
             ivGuntingP2.setOnClickListener {
                 if (enemyType == getString(R.string.enemy_friend) && player1Choice != "DEFAULT") {
+                    when (player1Choice) {
+                        KERTAS -> {
+                            bgChoosenImage(ivKertasP1)
+                        }
+                        GUNTING -> {
+                            bgChoosenImage(ivGuntingP1)
+                        }
+                        BATU -> {
+                            bgChoosenImage(ivBatuP1)
+                        }
+                    }
                     bgChoosenImage(ivGuntingP2)
                     gameFunctionFriend(player1Choice, GUNTING)
                 }
             }
             ivKertasP2.setOnClickListener {
                 if (enemyType == getString(R.string.enemy_friend) && player1Choice != "DEFAULT") {
+                    when (player1Choice) {
+                        KERTAS -> {
+                            bgChoosenImage(ivKertasP1)
+                        }
+                        GUNTING -> {
+                            bgChoosenImage(ivGuntingP1)
+                        }
+                        BATU -> {
+                            bgChoosenImage(ivBatuP1)
+                        }
+                    }
                     bgChoosenImage(ivKertasP2)
                     gameFunctionFriend(player1Choice, KERTAS)
                 }
             }
             ivBatuP2.setOnClickListener {
                 if (enemyType == getString(R.string.enemy_friend) && player1Choice != "DEFAULT") {
+                    when (player1Choice) {
+                        KERTAS -> {
+                            bgChoosenImage(ivKertasP1)
+                        }
+                        GUNTING -> {
+                            bgChoosenImage(ivGuntingP1)
+                        }
+                        BATU -> {
+                            bgChoosenImage(ivBatuP1)
+                        }
+                    }
                     bgChoosenImage(ivBatuP2)
                     gameFunctionFriend(player1Choice, BATU)
                 }
             }
 
         }
+    }
+
+    fun onClickPlayer1Choice(
+        ivPlayerChoice: ImageView,
+        choice: String,
+        enemyType: String?
+    ) {
+        player1Choice = choice
+        if (enemyType == getString(R.string.enemy_cpu)) {
+            gameFunctionCpu(player1Choice)
+            bgChoosenImage(ivPlayerChoice)
+        } else {
+            binding?.tvStatusPlayer?.text = getString(R.string.pemain_2_sedang_memilih)
+        }
+        blockClick()
     }
 
     fun gameFunctionCpu(player1Choice: String) {
