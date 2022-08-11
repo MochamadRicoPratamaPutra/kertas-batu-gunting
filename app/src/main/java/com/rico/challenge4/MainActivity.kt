@@ -26,12 +26,14 @@ class MainActivity : AppCompatActivity() {
         binding?.ivKertasP1?.isClickable = false
         binding?.ivGuntingP1?.isClickable = false
     }
+    var player1Choice = "DEFAULT"
+
+    var BG_IMAGE = R.drawable.border_radius_shape
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        lateinit var player1Choice: String
         val enemyType = intent.getStringExtra(ENEMY_TYPE)
         binding?.apply {
             ivBatuP1.setOnClickListener {
@@ -67,7 +69,12 @@ class MainActivity : AppCompatActivity() {
                 binding?.ivGuntingP1?.isClickable = true
                 binding?.tvResult?.isVisible = true
                 binding?.tvResult?.text = VS
-                binding?.tvResult?.setTextColor(ContextCompat.getColor(this@MainActivity, R.color.secondary5))
+                binding?.tvResult?.setTextColor(
+                    ContextCompat.getColor(
+                        this@MainActivity,
+                        R.color.secondary5
+                    )
+                )
                 binding?.tvResult?.setBackgroundColor(BG_COLOR)
                 binding?.tvResult?.textSize = TEXT_SIZE
                 binding?.ivGuntingP2?.setBackgroundColor(BG_COLOR)
@@ -77,37 +84,41 @@ class MainActivity : AppCompatActivity() {
                 binding?.ivBatuP1?.setBackgroundColor(BG_COLOR)
                 binding?.ivBatuP2?.setBackgroundColor(BG_COLOR)
             }
-            if (enemyType == getString(R.string.enemy_friend)) {
-                ivGuntingP2.setOnClickListener {
+            ivGuntingP2.setOnClickListener {
+                if (enemyType == getString(R.string.enemy_friend) && player1Choice != "DEFAULT") {
                     bgChoosenImage(ivGuntingP2)
                     gameFunctionFriend(player1Choice, GUNTING)
                 }
-                ivKertasP2.setOnClickListener {
+            }
+            ivKertasP2.setOnClickListener {
+                if (enemyType == getString(R.string.enemy_friend) && player1Choice != "DEFAULT") {
                     bgChoosenImage(ivKertasP2)
                     gameFunctionFriend(player1Choice, KERTAS)
                 }
-                ivBatuP2.setOnClickListener {
+            }
+            ivBatuP2.setOnClickListener {
+                if (enemyType == getString(R.string.enemy_friend) && player1Choice != "DEFAULT") {
                     bgChoosenImage(ivBatuP2)
                     gameFunctionFriend(player1Choice, BATU)
                 }
             }
+
         }
     }
 
     fun gameFunctionCpu(player1Choice: String) {
-        val BG_IMAGE: Drawable? = ContextCompat.getDrawable(this, R.drawable.border_radius_shape)
         val mekanik = MekanikGameClass(player1Choice)
         val COM_CHOICE = mekanik.determiningComChoice()
         Log.d("PLAYERCHOICE", "Pemain 1: $player1Choice, Pemain 2 : $COM_CHOICE")
         when (COM_CHOICE) {
             KERTAS -> {
-                binding?.ivKertasP2?.background = BG_IMAGE
+                binding?.ivKertasP2?.setBackgroundResource(BG_IMAGE)
             }
             BATU -> {
-                binding?.ivBatuP2?.background = BG_IMAGE
+                binding?.ivBatuP2?.setBackgroundResource(BG_IMAGE)
             }
             GUNTING -> {
-                binding?.ivGuntingP2?.background = BG_IMAGE
+                binding?.ivGuntingP2?.setBackgroundResource(BG_IMAGE)
             }
         }
         resultGame(mekanik.result(COM_CHOICE))
@@ -115,8 +126,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun bgChoosenImage(playerChoice: ImageView) {
-        val BG_IMAGE: Drawable? = ContextCompat.getDrawable(this, R.drawable.border_radius_shape)
-        playerChoice.background = BG_IMAGE
+        playerChoice.setBackgroundResource(BG_IMAGE)
     }
 
     fun gameFunctionFriend(player1Choice: String, player2Choice: String) {
