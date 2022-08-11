@@ -3,6 +3,7 @@ package com.rico.challenge4
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding?.root)
         val enemyType = intent.getStringExtra(ENEMY_TYPE)
         binding?.apply {
+
+            if (enemyType == getString(R.string.enemy_friend)) {
+                tvStatusPlayer.text = String.format(getString(R.string.pemain_sedang_memilih, "1"))
+            } else {
+                tvStatusPlayer.visibility = View.GONE
+            }
+
             ivBatuP1.setOnClickListener {
                 onClickPlayer1Choice(ivBatuP1, BATU, enemyType)
             }
@@ -138,7 +146,8 @@ class MainActivity : AppCompatActivity() {
             gameFunctionCpu(player1Choice)
             bgChoosenImage(ivPlayerChoice)
         } else {
-            binding?.tvStatusPlayer?.text = getString(R.string.pemain_2_sedang_memilih)
+            binding?.tvStatusPlayer?.text =
+                String.format(getString(R.string.pemain_sedang_memilih, "2"))
         }
         blockClick()
     }
