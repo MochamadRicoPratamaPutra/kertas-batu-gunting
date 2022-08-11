@@ -80,6 +80,7 @@ class FragmentlandingPage3 : Fragment() {
             val username = binding?.etName?.text.toString()
             intent.putExtra(USERNAME, username)
             startActivity(intent)
+            activity?.finish()
         }
     }
 }
