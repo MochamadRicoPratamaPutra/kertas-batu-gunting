@@ -20,8 +20,8 @@
     <string name="bermain_suit_bersama_dengan_cpu">Bermain suit bersama dengan CPU</string>
     <string name="image_playing_with_friend">Image playing with friend</string>
     <string name="image_playing_with_cpu">Image playing with cpu</string>
-    <string name="user_vs_teman">User vs Teman</string>
-    <string name="user_vs_cpu">User vs CPU</string>
+    <string name="user_vs_teman">%1$s vs Teman</string>
+    <string name="user_vs_cpu">%1$s vs CPU</string>
     <string name="pilih_lawanmu">Pilih Lawanmu</string>
     <string name="enemy_cpu">CPU</string>
     <string name="enemy_friend">Friend</string>

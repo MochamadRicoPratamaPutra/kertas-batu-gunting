@@ -38,7 +38,8 @@ class ChoosingEnemyActivity : AppCompatActivity() {
             }
             snackbar.show()
         }
-        binding?.tvLawanCpu?.text = "$username vs CPU"
+        binding?.tvLawanCpu?.text = String.format(getString(R.string.user_vs_cpu, username))
+        binding?.tvLawanTeman?.text = String.format(getString(R.string.user_vs_teman, username))
     }
 
     fun choosingEnemy(enemyType: String) {
