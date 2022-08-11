@@ -1,5 +1,6 @@
 package com.rico.challenge4
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -120,7 +121,10 @@ class MainActivity : AppCompatActivity() {
                     gameFunctionFriend(player1Choice, BATU)
                 }
             }
-
+            ivClose.setOnClickListener {
+                val intentClose = Intent(this@MainActivity, ChoosingEnemyActivity::class.java)
+                startActivity(intentClose)
+            }
         }
     }
 
