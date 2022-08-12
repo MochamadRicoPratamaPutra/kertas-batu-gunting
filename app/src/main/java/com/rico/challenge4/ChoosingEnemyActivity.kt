@@ -3,7 +3,6 @@ package com.rico.challenge4
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.rico.challenge4.databinding.ActivityChoosingEnemyBinding
@@ -20,18 +19,19 @@ class ChoosingEnemyActivity : AppCompatActivity() {
         val username = intent.getStringExtra(USERNAME)
         binding?.apply {
             ivLawanCpu.setOnClickListener {
-                choosingEnemy(getString(R.string.enemy_cpu))
+                choosingEnemy(getString(R.string.enemy_cpu), username.toString())
             }
             tvLawanCpu.setOnClickListener {
-                choosingEnemy(getString(R.string.enemy_cpu))
+                choosingEnemy(getString(R.string.enemy_cpu), username.toString())
             }
             ivLawanTeman.setOnClickListener {
-                choosingEnemy(getString(R.string.enemy_friend))
+                choosingEnemy(getString(R.string.enemy_friend), username.toString())
             }
             tvLawanTeman.setOnClickListener {
-                choosingEnemy(getString(R.string.enemy_friend))
+                choosingEnemy(getString(R.string.enemy_friend), username.toString())
             }
-            var snackbar = Snackbar.make(ivLawanCpu, "Selamat datang $username", Snackbar.LENGTH_LONG)
+            var snackbar =
+                Snackbar.make(ivLawanCpu, "Selamat datang $username", Snackbar.LENGTH_LONG)
             Log.d("TESTING RESULT", "$username")
             snackbar.setAction("Tutup") {
                 snackbar.dismiss()
@@ -42,9 +42,10 @@ class ChoosingEnemyActivity : AppCompatActivity() {
         binding?.tvLawanTeman?.text = String.format(getString(R.string.user_vs_teman, username))
     }
 
-    fun choosingEnemy(enemyType: String) {
+    fun choosingEnemy(enemyType: String, username: String) {
         var intentEnemy = Intent(this@ChoosingEnemyActivity, MainActivity::class.java)
         intentEnemy.putExtra(ExtraSource.ENEMY_TYPE, enemyType)
+        intentEnemy.putExtra(ExtraSource.USERNAME, username)
         startActivity(intentEnemy)
     }
 }

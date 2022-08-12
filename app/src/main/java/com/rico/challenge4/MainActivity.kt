@@ -14,6 +14,7 @@ import com.rico.challenge4.model.ChoiceAvaliable.BATU
 import com.rico.challenge4.model.ChoiceAvaliable.GUNTING
 import com.rico.challenge4.model.ChoiceAvaliable.KERTAS
 import com.rico.challenge4.model.ExtraSource.ENEMY_TYPE
+import com.rico.challenge4.model.ExtraSource.USERNAME
 import com.rico.challenge4.model.ResultText.DRAW
 import com.rico.challenge4.model.ResultText.WIN
 
@@ -37,7 +38,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
         val enemyType = intent.getStringExtra(ENEMY_TYPE)
+        val username = intent.getStringExtra(USERNAME)
         binding?.apply {
+
+            tvP1.text = username.toString()
 
             if (enemyType == getString(R.string.enemy_friend)) {
                 tvStatusPlayer.text = String.format(getString(R.string.pemain_sedang_memilih, "1"))
