@@ -15,4 +15,6 @@
     <color name="secondary3">#C3DAE9</color>
     <color name="secondary4">#92D050</color>
     <color name="secondary5">#FF0000</color>
+    <color name="buttonColor1">#9B6DBB</color>
+    <color name="buttonColor2">#FF9900</color>
 </resources>

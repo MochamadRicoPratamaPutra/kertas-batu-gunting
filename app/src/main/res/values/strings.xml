@@ -6,6 +6,7 @@
     <string name="gunting">Gunting</string>
     <string name="player_1">Player 1</string>
     <string name="player_2">CPU</string>
+    <string name="player_2_friend">Player 2</string>
     <string name="image_kertas">image kertas</string>
     <string name="image_batu">image batu</string>
     <string name="image_gunting">image gunting</string>
@@ -29,4 +30,9 @@
     <string name="image_user">Image User</string>
     <string name="username">Username</string>
     <string name="pemain_sedang_memilih">Pemain %1$s sedang memilih</string>
+    <string name="hasil_permainan">Hasil Permainan</string>
+    <string name="kembali_ke_menu">Kembali Ke Menu</string>
+    <string name="main_lagi">Main Lagi</string>
+    <string name="pemain_menang">%1$s \n Menang</string>
+
 </resources>
