@@ -184,7 +184,7 @@ class MainActivity : AppCompatActivity() {
                 binding?.ivGuntingP2?.setBackgroundResource(BG_IMAGE)
             }
         }
-        resultGame(mekanik.result(COM_CHOICE))
+        resultGame(mekanik.result(COM_CHOICE), getString(R.string.enemy_cpu), COM_CHOICE)
         showResultDialog()
         Log.d("RESULT", "Pemain 1 ${mekanik.result(COM_CHOICE)}")
     }
@@ -195,27 +195,30 @@ class MainActivity : AppCompatActivity() {
 
     fun gameFunctionFriend(player1Choice: String, player2Choice: String) {
         val mekanik = MekanikGameClass(player1Choice)
-        resultGame(mekanik.result(player2Choice))
+        resultGame(mekanik.result(player2Choice), getString(R.string.enemy_friend), player2Choice)
         showResultDialog()
         Log.d("RESULT", "Pemain 1 ${mekanik.result(player2Choice)}")
         Log.d("PLAYERCHOICE", "Pemain 1: $player1Choice, Pemain 2 : $player2Choice")
     }
 
-    fun resultGame(result: String) {
+    fun resultGame(result: String, enemyType: String, enemyAnswer: String) {
         val PLAYER1_WIN_TEXT: String = getString(R.string.player_1_win)
         val PLAYER2_WIN_TEXT: String = getString(R.string.player_2_win)
         val DRAW_TEXT: String = getString(R.string.draw_result)
         when (result) {
             WIN -> {
-                Toast.makeText(this, PLAYER1_WIN_TEXT, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, PLAYER1_WIN_TEXT, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, String.format(getString(R.string.musuh_memilih), enemyType, enemyAnswer), Toast.LENGTH_SHORT).show()
                 winner = intent.getStringExtra(USERNAME).toString()
             }
             DRAW -> {
-                Toast.makeText(this, DRAW_TEXT, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, DRAW_TEXT, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, String.format(getString(R.string.musuh_memilih), enemyType, enemyAnswer), Toast.LENGTH_SHORT).show()
                 winner = getString(R.string.draw_result)
             }
             else -> {
-                Toast.makeText(this, PLAYER2_WIN_TEXT, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, PLAYER2_WIN_TEXT, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, String.format(getString(R.string.musuh_memilih), enemyType, enemyAnswer), Toast.LENGTH_SHORT).show()
                 if (intent.getStringExtra(ENEMY_TYPE).toString() == getString(R.string.player_2)) {
                     winner = getString(R.string.player_2)
                 } else {
