@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.rico.challenge4.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -18,10 +19,11 @@ class SplashScreenActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-//        binding?.apply {
-//            Glide.with(this@SplashScreenActivity)
-//                .load("https://i.ibb.co/HC5ZPgD/splash-screen1.png").into(ivLogoText)
-//        }
+        binding?.apply {
+            Glide.with(this@SplashScreenActivity)
+                .load("https://i.ibb.co/HC5ZPgD/splash-screen1.png")
+                .override(500, 500).into(ivLogoText)
+        }
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this@SplashScreenActivity, LandingPageActivity::class.java)
