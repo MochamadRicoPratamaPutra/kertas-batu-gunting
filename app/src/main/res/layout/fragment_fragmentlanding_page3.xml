@@ -11,12 +11,12 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
         android:contentDescription="@string/image_user"
         android:src="@drawable/ic_landing_page3"
         app:layout_constraintBottom_toTopOf="@+id/tvTulisNama"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvTulisNama"
@@ -26,31 +26,31 @@
         android:layout_marginVertical="30dp"
         android:text="@string/tuliskan_namamu_di_bawah"
         android:textColor="@color/teal_200"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="20sp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTulisNama"
-        android:layout_marginTop="30dp"/>
-
-    <ImageView
-        android:id="@+id/ivNextActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginVertical="20dp"
-        android:src="@drawable/ic_baseline_chevron_right_24"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTulisNama" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivNextActivity"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        android:layout_marginHorizontal="30dp"-->
+<!--        android:layout_marginVertical="20dp"-->
+<!--        android:src="@drawable/ic_baseline_chevron_right_24"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

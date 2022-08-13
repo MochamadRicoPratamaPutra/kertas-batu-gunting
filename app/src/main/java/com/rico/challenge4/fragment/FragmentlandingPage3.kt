@@ -1,19 +1,14 @@
 package com.rico.challenge4.fragment
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
 import com.rico.challenge4.ChoosingEnemyActivity
-import com.rico.challenge4.MainActivity
-import com.rico.challenge4.R
 import com.rico.challenge4.databinding.FragmentFragmentlandingPage3Binding
 import com.rico.challenge4.model.ExtraSource.USERNAME
 
@@ -27,7 +22,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [FragmentlandingPage3.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FragmentlandingPage3 : Fragment() {
+class FragmentlandingPage3(val onSendData: ((String) -> Unit)? = null) : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -74,13 +69,23 @@ class FragmentlandingPage3 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding?.etName?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
 
-        binding?.ivNextActivity?.setOnClickListener {
-            val intent = Intent(activity, ChoosingEnemyActivity::class.java)
-            val username = binding?.etName?.text.toString()
-            intent.putExtra(USERNAME, username)
-            startActivity(intent)
-            activity?.finish()
-        }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                onSendData?.invoke(p0.toString())
+            }
+        })
+//        binding?.ivNextActivity?.setOnClickListener {
+//            val intent = Intent(activity, ChoosingEnemyActivity::class.java)
+//            val username = binding?.etName?.text.toString()
+//            intent.putExtra(USERNAME, username)
+//            startActivity(intent)
+//            activity?.finish()
+//        }
     }
 }
