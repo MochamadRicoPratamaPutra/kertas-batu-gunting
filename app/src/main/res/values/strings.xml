@@ -35,4 +35,5 @@
     <string name="main_lagi">Main Lagi</string>
     <string name="pemain_menang">%1$s \n Menang</string>
     <string name="musuh_memilih">%1$s memilih %2$s</string>
+    <string name="nama_belum_terisi">Nama belum terisi</string>
 </resources>

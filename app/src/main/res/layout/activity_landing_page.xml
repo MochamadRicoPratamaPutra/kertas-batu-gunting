@@ -10,21 +10,21 @@
         android:id="@+id/vpFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <me.relex.circleindicator.CircleIndicator3
         android:id="@+id/ciPager"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="50dp"
         app:ci_drawable="@drawable/shape_circle_selected"
-        app:ci_drawable_unselected="@drawable/shape_circle_unselected"/>
+        app:ci_drawable_unselected="@drawable/shape_circle_unselected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/ivNextActivity"
@@ -34,7 +34,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginVertical="20dp"
         android:src="@drawable/ic_baseline_chevron_right_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
