@@ -125,8 +125,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun backToMenu() {
-        val intentClose = Intent(this@MainActivity, ChoosingEnemyActivity::class.java)
-        startActivity(intentClose)
+        finish()
     }
 
     fun resetState() {
